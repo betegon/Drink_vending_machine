@@ -22,14 +22,6 @@
 library IEEE;
 use ieee.std_logic_1164.all;
 use IEEE.numeric_std.all;
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity maquina_dispensadora is 
 Port(   CLK:  in std_logic;
@@ -58,9 +50,9 @@ begin
     elsif (CLK='1' and CLK'EVENT) then
         case state is
             when init =>
-                D<='0';
+            --    D<='0'; -- quitamos D de este proceso. ponemos proceso a parte porque aqui sino añadiria un ciclo de reloj adicional (D se actualizaria al final del ciclo). y nos ahorramos un registro.
                 state <=waitt;
-                        
+                tot<=(others=>'0');      
             when waitt =>
                 if(C='1') then
                     state<=add;
@@ -69,15 +61,25 @@ begin
                  end if;   
             when add =>
                 tot<= tot+A;
+                state<= waitt;
             when disp =>
-            D<='1';
+            --    D<='1';
             state<=init; 
        end case;
-    end if;
+    end if; 
 end process;
-CAMBIAR: PROCESO MÁS DONDE PONGA QUE D=1 SI EL STATE ES DISP, ELSE D=0; IMPORTANTE, ASI CON D, NO TE USA UN REGISTRO.
-borrar D en el proceso principal y solo usarlo en el proceso que tengo que crear.
-COMO VERSION INICIAL ESTO ESTA BIEN. SUBIRLO A GITHUB Y MEJORARLO CON EL PROCESO NUEVO.
-TAMBIEN TENGO QUE CREAR EL TEST BENCH
+
+
+-- con este siguiente proceso, lo que conseguimos es un proceso combinacional (en vez de secuencial, caso anterior de D). asi nos ahorramos un ciclo y un registro
+D_process: process(state) -- usando este proceso, evitamos que se actualizen los valores al final del ciclo (esto anadiria un ciclo ode reloj adicional).
+
+begin
+	case state is
+	when disp =>
+ 		D<='1';
+	when others =>    
+		D<='0';
+	end case;
+end process;
 
 end fsmd;

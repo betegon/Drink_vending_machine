@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Nov  5 11:57:15 2018
+# Process ID: 15436
+# Current directory: /home/betegon/Dropbox/UNIVERSIDAD/MASTER/1_MASTER/1er_CUATRI/ampliacin de sistemas electrnicos/maquina_dispensadora/maquina_dispensadora.runs/synth_1
+# Command line: vivado -log maquina_dispensadora.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source maquina_dispensadora.tcl
+# Log file: /home/betegon/Dropbox/UNIVERSIDAD/MASTER/1_MASTER/1er_CUATRI/ampliacin de sistemas electrnicos/maquina_dispensadora/maquina_dispensadora.runs/synth_1/maquina_dispensadora.vds
+# Journal file: /home/betegon/Dropbox/UNIVERSIDAD/MASTER/1_MASTER/1er_CUATRI/ampliacin de sistemas electrnicos/maquina_dispensadora/maquina_dispensadora.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source maquina_dispensadora.tcl -notrace

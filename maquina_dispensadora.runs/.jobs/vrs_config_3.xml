@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="synth_1" LaunchDir="/home/betegon/Dropbox/UNIVERSIDAD/MASTER/1_MASTER/1er_CUATRI/ampliacin de sistemas electrnicos/maquina_dispensadora/maquina_dispensadora.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+
